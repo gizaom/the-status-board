@@ -3,6 +3,11 @@ import { WaitlistForm } from "@/components/WaitlistForm";
 import { SubscribeButton } from "@/components/SubscribeButton";
 
 export default function HomePage() {
+  const stripeConfigured = Boolean(
+    process.env.STRIPE_SECRET_KEY?.trim() &&
+      process.env.STRIPE_PRICE_ID?.trim()
+  );
+
   return (
     <main className="site">
       <header className="masthead">
@@ -11,18 +16,19 @@ export default function HomePage() {
       </header>
 
       <section className="hero">
-        <p className="hero-kicker">Phase A · marketing lander</p>
-        <h1>The Status Board</h1>
+        <p className="hero-kicker">Weekday · Federal + Florida</p>
+        <h1>What moved. What matters. Before the day starts.</h1>
         <p className="hero-pitch">
-          A weekday technical politics brief covering federal and Florida —
-          what moved, what matters, in plain English.
+          A paid weekday brief on technical politics — agency dockets,
+          Tallahassee, statute that actually changed. Plain English. No horse
+          race.
         </p>
         <div className="hero-actions">
           <a className="btn" href="#waitlist">
             Join the waitlist
           </a>
-          <a className="btn btn-ghost" href="#pricing">
-            See pricing
+          <a className="btn btn-ghost" href="#sample">
+            Read the Sep 18 sample
           </a>
         </div>
       </section>
@@ -65,7 +71,7 @@ export default function HomePage() {
       <section className="section" id="sample">
         <p className="section-label">02 · Sample brief</p>
         <h2>A real excerpt from Sep 18</h2>
-        <p style={{ color: "var(--ink-muted)", marginTop: 0 }}>
+        <p className="lede">
           One section from a prior weekday brief — wording unchanged, primary
           source linked. Not a live feed; Florida receipts land in Phase B.
         </p>
@@ -83,17 +89,18 @@ export default function HomePage() {
             $9<span>/mo</span>
           </p>
           <p className="pricing-note">
-            Cancel anytime. Stripe Checkout when keys are configured; until
-            then, join the waitlist.
+            {stripeConfigured
+              ? "Cancel anytime. Stripe Checkout is live."
+              : "Cancel anytime. Waitlist until Stripe keys are live — no dead checkout button."}
           </p>
-          <SubscribeButton />
+          <SubscribeButton stripeConfigured={stripeConfigured} />
         </div>
       </section>
 
       <section className="section" id="waitlist">
         <p className="section-label">04 · Waitlist</p>
         <h2>Get early access</h2>
-        <p style={{ color: "var(--ink-muted)", marginTop: 0 }}>
+        <p className="lede">
           Leave an email. We will not spam — just a note when paid briefs open.
         </p>
         <WaitlistForm />

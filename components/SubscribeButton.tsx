@@ -2,7 +2,11 @@
 
 import { useState } from "react";
 
-export function SubscribeButton() {
+type Props = {
+  stripeConfigured: boolean;
+};
+
+export function SubscribeButton({ stripeConfigured }: Props) {
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState("");
 
@@ -34,6 +38,16 @@ export function SubscribeButton() {
     } finally {
       setBusy(false);
     }
+  }
+
+  if (!stripeConfigured) {
+    return (
+      <div>
+        <a className="btn" href="#waitlist">
+          Join the waitlist
+        </a>
+      </div>
+    );
   }
 
   return (

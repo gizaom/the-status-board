@@ -1,5 +1,31 @@
 import type { Metadata } from "next";
+import {
+  IBM_Plex_Mono,
+  IBM_Plex_Sans,
+  IBM_Plex_Serif,
+} from "next/font/google";
 import "./globals.css";
+
+const plexSans = IBM_Plex_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-plex-sans",
+  display: "block",
+});
+
+const plexSerif = IBM_Plex_Serif({
+  subsets: ["latin"],
+  weight: ["500", "600"],
+  variable: "--font-plex-serif",
+  display: "block",
+});
+
+const plexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-plex-mono",
+  display: "block",
+});
 
 export const metadata: Metadata = {
   title: "The Status Board — Weekday technical politics brief",
@@ -13,20 +39,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@500;600&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body>{children}</body>
+    <html
+      lang="en"
+      className={`${plexSans.variable} ${plexSerif.variable} ${plexMono.variable}`}
+    >
+      <body className={plexSans.className}>{children}</body>
     </html>
   );
 }
