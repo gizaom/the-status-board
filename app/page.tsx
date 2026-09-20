@@ -63,8 +63,12 @@ export default function HomePage() {
       </section>
 
       <section className="section" id="sample">
-        <p className="section-label">02 · Sample board</p>
-        <h2>How the instrument reads</h2>
+        <p className="section-label">02 · Sample brief</p>
+        <h2>A real excerpt from Sep 18</h2>
+        <p style={{ color: "var(--ink-muted)", marginTop: 0 }}>
+          One section from a prior weekday brief — wording unchanged, primary
+          source linked. Not a live feed; Florida receipts land in Phase B.
+        </p>
         <StatusBoardMock />
       </section>
 

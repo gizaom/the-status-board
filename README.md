@@ -2,7 +2,7 @@
 
 Paid weekday technical politics brief covering **federal + Florida**.
 
-This repo currently ships **Phase A**: a marketing lander (hero, what you get, sample status-board mock, pricing, waitlist, Stripe Checkout stub). Florida receipts / live board feed are **Phase B** and are not built yet.
+This repo currently ships **Phase A**: a marketing lander (hero, what you get, real Sep 18 brief sample with primary-source citation, pricing, waitlist, Stripe Checkout stub). Florida receipts / live board feed are **Phase B** and are not built yet.
 
 ## Stack
 
@@ -57,13 +57,15 @@ Copy `.env.example` to `.env.local` and fill in when ready. **Do not invent secr
 | | Phase A (this lander) | Phase B (not yet) |
 | --- | --- | --- |
 | Marketing page | ✅ | — |
-| Sample HTML/CSS instrument mock | ✅ (static) | — |
+| Sample excerpt from a prior brief (Sep 18) with primary-source link | ✅ | — |
 | Waitlist stub | ✅ | Harden / durable store |
 | Stripe Checkout stub | ✅ | Live $9/mo |
 | Florida receipts / live ticks | ❌ | Planned |
 | Real brief delivery | ❌ | Planned |
 
 ## Design notes
+
+The lander sample is a real excerpt from the Sep 18, 2026 weekday brief (H.R. 5334), with a visible Congress.gov citation — not placeholder status cards.
 
 Editorial instrument board aesthetic: paper background, dark accents, serif headlines. No stock photography, no purple SaaS gradients.
 
