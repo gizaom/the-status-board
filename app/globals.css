@@ -1,0 +1,382 @@
+:root {
+  --paper: #f4f1ea;
+  --paper-deep: #ebe6db;
+  --ink: #1a1a18;
+  --ink-muted: #5c5a54;
+  --rule: #cfc8b8;
+  --accent: #1a1a18;
+  --tick-live: #2f6b3a;
+  --tick-watch: #8a6a1a;
+  --tick-quiet: #6b6b66;
+  --board: #121211;
+  --board-ink: #e8e4d8;
+  --board-muted: #9a9688;
+  --board-rule: #2a2a28;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "IBM Plex Serif", "Georgia", "Times New Roman", serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin: 0 0 0.6em;
+}
+
+a {
+  color: inherit;
+}
+
+.site {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 4rem;
+}
+
+.masthead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 0.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.masthead-mark {
+  font-family: "IBM Plex Serif", Georgia, serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.masthead-meta {
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+  letter-spacing: 0.02em;
+}
+
+.hero {
+  margin-bottom: 3rem;
+}
+
+.hero-kicker {
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-bottom: 0.75rem;
+}
+
+.hero h1 {
+  font-size: clamp(2.4rem, 6vw, 3.4rem);
+  margin-bottom: 0.75rem;
+}
+
+.hero-pitch {
+  font-size: 1.25rem;
+  color: var(--ink-muted);
+  max-width: 36ch;
+  margin: 0 0 1.5rem;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  border: 1.5px solid var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 0.7rem 1.15rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.btn:hover {
+  background: transparent;
+  color: var(--ink);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--ink);
+}
+
+.btn-ghost:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.section {
+  margin-bottom: 3rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--rule);
+}
+
+.section-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin: 1.25rem 0 1rem;
+}
+
+.section h2 {
+  font-size: 1.65rem;
+}
+
+.bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.bullets li {
+  position: relative;
+  padding: 0.85rem 0 0.85rem 1.35rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.bullets li:last-child {
+  border-bottom: none;
+}
+
+.bullets li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--ink-muted);
+}
+
+.bullets strong {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.15rem;
+}
+
+.bullets span {
+  color: var(--ink-muted);
+  font-size: 0.98rem;
+}
+
+/* Instrument board mock */
+.board {
+  background: var(--board);
+  color: var(--board-ink);
+  border: 1px solid var(--board);
+  padding: 1rem 1.1rem 0.85rem;
+  margin-top: 0.5rem;
+}
+
+.board-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  border-bottom: 1px solid var(--board-rule);
+  padding-bottom: 0.65rem;
+  margin-bottom: 0.35rem;
+}
+
+.board-title {
+  font-family: "IBM Plex Serif", Georgia, serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.board-stamp {
+  font-size: 0.72rem;
+  color: var(--board-muted);
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
+}
+
+.board-caption {
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+  margin: 0.75rem 0 0;
+}
+
+.tick-row {
+  display: grid;
+  grid-template-columns: 4.5rem 1fr auto;
+  gap: 0.75rem;
+  align-items: baseline;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--board-rule);
+  font-size: 0.9rem;
+}
+
+.tick-row:last-child {
+  border-bottom: none;
+}
+
+.tick-scope {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--board-muted);
+}
+
+.tick-label {
+  font-weight: 500;
+}
+
+.tick-note {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 0.8rem;
+  color: var(--board-muted);
+  font-weight: 400;
+}
+
+.tick-status {
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.tick-status.live {
+  color: #7dba88;
+}
+
+.tick-status.watch {
+  color: #d4b45a;
+}
+
+.tick-status.quiet {
+  color: var(--board-muted);
+}
+
+.pricing-card {
+  background: var(--paper-deep);
+  border: 1.5px solid var(--ink);
+  padding: 1.5rem 1.35rem;
+  margin-top: 0.75rem;
+}
+
+.price {
+  font-family: "IBM Plex Serif", Georgia, serif;
+  font-size: 2.75rem;
+  line-height: 1;
+  margin: 0.25rem 0 0.35rem;
+}
+
+.price span {
+  font-size: 1rem;
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  color: var(--ink-muted);
+  font-weight: 400;
+}
+
+.pricing-note {
+  color: var(--ink-muted);
+  margin: 0 0 1.25rem;
+  font-size: 0.95rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.form input[type="email"] {
+  flex: 1 1 14rem;
+  min-width: 0;
+  border: 1.5px solid var(--ink);
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+  padding: 0.7rem 0.85rem;
+}
+
+.form input[type="email"]:focus {
+  outline: 2px solid var(--ink);
+  outline-offset: 1px;
+}
+
+.form-msg {
+  font-size: 0.9rem;
+  min-height: 1.35em;
+}
+
+.form-msg.ok {
+  color: var(--tick-live);
+}
+
+.form-msg.err {
+  color: #8b2e2e;
+}
+
+.footer {
+  margin-top: 3.5rem;
+  padding-top: 1rem;
+  border-top: 2px solid var(--ink);
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+@media (max-width: 520px) {
+  .tick-row {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+
+  .tick-status {
+    justify-self: start;
+  }
+}
